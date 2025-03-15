@@ -1,19 +1,18 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "Backend/bot.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "Frontend/package.json",
-        "use": "@vercel/static-build",
-        "config": { "distDir": "Frontend/dist" }
-      }
-    ],
-    "routes": [
-      { "src": "/api/(.*)", "dest": "Backend/bot.js" },
-      { "src": "/(.*)", "dest": "Frontend/dist/$1" }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "Backend/bot.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "Frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "Frontend/dist" }
+    }
+  ],
+  "routes": [
+    { "src": "/api/bot", "dest": "Backend/bot.js" },
+    { "src": "/(.*)", "dest": "Frontend/dist/$1" }
+  ]
+}
